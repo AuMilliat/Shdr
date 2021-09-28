@@ -1,0 +1,2 @@
+E:\Shdr\obj\Debug\Shdr.njsproj.CoreCompileInputs.cache
+E:\Shdr\bin\Microsoft.NodejsTools.WebRole.dll

@@ -1,0 +1,248 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Shdr</Name>
+    <RootNamespace>Shdr</RootNamespace>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <NodeExePath>E:\nodejs\node.exe</NodeExePath>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>b45b502d-a537-4d8e-9394-ae6568352fb0</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>True</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="sources\css\main.css" />
+    <Content Include="sources\editor.html" />
+    <Content Include="sources\fonts\.htaccess" />
+    <Content Include="sources\fonts\font-awesome\font-awesome.min.css" />
+    <Content Include="sources\fonts\font-awesome\fontawesome-webfont.eot" />
+    <Content Include="sources\fonts\font-awesome\fontawesome-webfont.svg" />
+    <Content Include="sources\fonts\font-awesome\fontawesome-webfont.ttf" />
+    <Content Include="sources\fonts\font-awesome\fontawesome-webfont.woff" />
+    <Content Include="sources\fonts\font-awesome\FontAwesome.otf" />
+    <Content Include="sources\fonts\ubuntu-mono\bold.woff" />
+    <Content Include="sources\fonts\ubuntu-mono\bolditalic.woff" />
+    <Content Include="sources\fonts\ubuntu-mono\font.css" />
+    <Content Include="sources\fonts\ubuntu-mono\italic.woff" />
+    <Content Include="sources\fonts\ubuntu-mono\normal.woff" />
+    <Content Include="sources\img\loader.gif" />
+    <Content Include="sources\index.html" />
+    <Content Include="sources\libs\ace\ace.js" />
+    <Content Include="sources\libs\ace\ext-searchbox.js" />
+    <Content Include="sources\libs\ace\ext-spellcheck.js" />
+    <Content Include="sources\libs\ace\ext-static_highlight.js" />
+    <Content Include="sources\libs\ace\ext-textarea.js" />
+    <Content Include="sources\libs\ace\keybinding-emacs.js" />
+    <Content Include="sources\libs\ace\keybinding-vim.js" />
+    <Content Include="sources\libs\ace\mode-abap.js" />
+    <Content Include="sources\libs\ace\mode-asciidoc.js" />
+    <Content Include="sources\libs\ace\mode-c9search.js" />
+    <Content Include="sources\libs\ace\mode-clojure.js" />
+    <Content Include="sources\libs\ace\mode-coffee.js" />
+    <Content Include="sources\libs\ace\mode-coldfusion.js" />
+    <Content Include="sources\libs\ace\mode-csharp.js" />
+    <Content Include="sources\libs\ace\mode-css.js" />
+    <Content Include="sources\libs\ace\mode-curly.js" />
+    <Content Include="sources\libs\ace\mode-c_cpp.js" />
+    <Content Include="sources\libs\ace\mode-dart.js" />
+    <Content Include="sources\libs\ace\mode-diff.js" />
+    <Content Include="sources\libs\ace\mode-django.js" />
+    <Content Include="sources\libs\ace\mode-dot.js" />
+    <Content Include="sources\libs\ace\mode-glsl.js" />
+    <Content Include="sources\libs\ace\mode-golang.js" />
+    <Content Include="sources\libs\ace\mode-groovy.js" />
+    <Content Include="sources\libs\ace\mode-haml.js" />
+    <Content Include="sources\libs\ace\mode-haxe.js" />
+    <Content Include="sources\libs\ace\mode-html.js" />
+    <Content Include="sources\libs\ace\mode-jade.js" />
+    <Content Include="sources\libs\ace\mode-java.js" />
+    <Content Include="sources\libs\ace\mode-javascript.js" />
+    <Content Include="sources\libs\ace\mode-json.js" />
+    <Content Include="sources\libs\ace\mode-jsp.js" />
+    <Content Include="sources\libs\ace\mode-jsx.js" />
+    <Content Include="sources\libs\ace\mode-latex.js" />
+    <Content Include="sources\libs\ace\mode-less.js" />
+    <Content Include="sources\libs\ace\mode-liquid.js" />
+    <Content Include="sources\libs\ace\mode-lisp.js" />
+    <Content Include="sources\libs\ace\mode-livescript.js" />
+    <Content Include="sources\libs\ace\mode-lua.js" />
+    <Content Include="sources\libs\ace\mode-luapage.js" />
+    <Content Include="sources\libs\ace\mode-lucene.js" />
+    <Content Include="sources\libs\ace\mode-makefile.js" />
+    <Content Include="sources\libs\ace\mode-markdown.js" />
+    <Content Include="sources\libs\ace\mode-objectivec.js" />
+    <Content Include="sources\libs\ace\mode-ocaml.js" />
+    <Content Include="sources\libs\ace\mode-perl.js" />
+    <Content Include="sources\libs\ace\mode-pgsql.js" />
+    <Content Include="sources\libs\ace\mode-php.js" />
+    <Content Include="sources\libs\ace\mode-powershell.js" />
+    <Content Include="sources\libs\ace\mode-python.js" />
+    <Content Include="sources\libs\ace\mode-r.js" />
+    <Content Include="sources\libs\ace\mode-rdoc.js" />
+    <Content Include="sources\libs\ace\mode-rhtml.js" />
+    <Content Include="sources\libs\ace\mode-ruby.js" />
+    <Content Include="sources\libs\ace\mode-scad.js" />
+    <Content Include="sources\libs\ace\mode-scala.js" />
+    <Content Include="sources\libs\ace\mode-scheme.js" />
+    <Content Include="sources\libs\ace\mode-scss.js" />
+    <Content Include="sources\libs\ace\mode-sh.js" />
+    <Content Include="sources\libs\ace\mode-sql.js" />
+    <Content Include="sources\libs\ace\mode-stylus.js" />
+    <Content Include="sources\libs\ace\mode-svg.js" />
+    <Content Include="sources\libs\ace\mode-tcl.js" />
+    <Content Include="sources\libs\ace\mode-tex.js" />
+    <Content Include="sources\libs\ace\mode-text.js" />
+    <Content Include="sources\libs\ace\mode-textile.js" />
+    <Content Include="sources\libs\ace\mode-tm_snippet.js" />
+    <Content Include="sources\libs\ace\mode-typescript.js" />
+    <Content Include="sources\libs\ace\mode-vbscript.js" />
+    <Content Include="sources\libs\ace\mode-xml.js" />
+    <Content Include="sources\libs\ace\mode-xquery.js" />
+    <Content Include="sources\libs\ace\mode-yaml.js" />
+    <Content Include="sources\libs\ace\theme-ambiance.js" />
+    <Content Include="sources\libs\ace\theme-chaos.js" />
+    <Content Include="sources\libs\ace\theme-chrome.js" />
+    <Content Include="sources\libs\ace\theme-clouds.js" />
+    <Content Include="sources\libs\ace\theme-clouds_midnight.js" />
+    <Content Include="sources\libs\ace\theme-cobalt.js" />
+    <Content Include="sources\libs\ace\theme-crimson_editor.js" />
+    <Content Include="sources\libs\ace\theme-dawn.js" />
+    <Content Include="sources\libs\ace\theme-dreamweaver.js" />
+    <Content Include="sources\libs\ace\theme-eclipse.js" />
+    <Content Include="sources\libs\ace\theme-github.js" />
+    <Content Include="sources\libs\ace\theme-idle_fingers.js" />
+    <Content Include="sources\libs\ace\theme-kr.js" />
+    <Content Include="sources\libs\ace\theme-merbivore.js" />
+    <Content Include="sources\libs\ace\theme-merbivore_soft.js" />
+    <Content Include="sources\libs\ace\theme-monokai.js" />
+    <Content Include="sources\libs\ace\theme-mono_industrial.js" />
+    <Content Include="sources\libs\ace\theme-pastel_on_dark.js" />
+    <Content Include="sources\libs\ace\theme-solarized_dark.js" />
+    <Content Include="sources\libs\ace\theme-solarized_light.js" />
+    <Content Include="sources\libs\ace\theme-textmate.js" />
+    <Content Include="sources\libs\ace\theme-tomorrow.js" />
+    <Content Include="sources\libs\ace\theme-tomorrow_night.js" />
+    <Content Include="sources\libs\ace\theme-tomorrow_night_blue.js" />
+    <Content Include="sources\libs\ace\theme-tomorrow_night_bright.js" />
+    <Content Include="sources\libs\ace\theme-tomorrow_night_eighties.js" />
+    <Content Include="sources\libs\ace\theme-twilight.js" />
+    <Content Include="sources\libs\ace\theme-vibrant_ink.js" />
+    <Content Include="sources\libs\ace\theme-xcode.js" />
+    <Content Include="sources\libs\ace\worker-coffee.js" />
+    <Content Include="sources\libs\ace\worker-css.js" />
+    <Content Include="sources\libs\ace\worker-javascript.js" />
+    <Content Include="sources\libs\ace\worker-json.js" />
+    <Content Include="sources\libs\ace\worker-php.js" />
+    <Content Include="sources\libs\ace\worker-xquery.js" />
+    <Content Include="sources\libs\bkcore\Timer.coffee" />
+    <Content Include="sources\libs\bkcore\Timer.js" />
+    <Content Include="sources\libs\jquery-1.8.js" />
+    <Content Include="sources\libs\threejs\three.min.js" />
+    <Content Include="sources\libs\threejs\three.orbit.js" />
+    <Content Include="sources\libs\threejs\three.webglrenderer.custom.js" />
+    <Content Include="sources\libs\zip\rawdeflate.js" />
+    <Content Include="sources\libs\zip\rawinflate.js" />
+    <Content Include="sources\manifest.json" />
+    <Content Include="sources\models\buildings.js" />
+    <Content Include="sources\models\cube.js" />
+    <Content Include="sources\models\dragon.js" />
+    <Content Include="sources\models\hexmkii.js" />
+    <Content Include="sources\models\quad.js" />
+    <Content Include="sources\models\sphere.js" />
+    <Content Include="sources\models\suzanne_high.js" />
+    <Content Include="sources\models\suzanne_low.js" />
+    <Content Include="sources\models\torus.js" />
+    <Content Include="sources\shdr\App.coffee" />
+    <Content Include="sources\shdr\Bootstrap.coffee" />
+    <Content Include="sources\shdr\Models.coffee" />
+    <Content Include="sources\shdr\ObjToJson.coffee">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="sources\shdr\Snippets.coffee" />
+    <Content Include="sources\shdr\Storage.coffee" />
+    <Content Include="sources\shdr\Textures.coffee" />
+    <Content Include="sources\shdr\UI.coffee" />
+    <Content Include="sources\shdr\Validator.coffee" />
+    <Content Include="sources\shdr\Viewer.coffee" />
+    <Content Include="sources\textures\beanie.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sources\" />
+    <Folder Include="sources\css\" />
+    <Folder Include="sources\fonts\" />
+    <Folder Include="sources\fonts\font-awesome\" />
+    <Folder Include="sources\fonts\ubuntu-mono\" />
+    <Folder Include="sources\img\" />
+    <Folder Include="sources\libs\" />
+    <Folder Include="sources\libs\ace\" />
+    <Folder Include="sources\libs\bkcore\" />
+    <Folder Include="sources\libs\threejs\" />
+    <Folder Include="sources\libs\zip\" />
+    <Folder Include="sources\models\" />
+    <Folder Include="sources\shdr\" />
+    <Folder Include="sources\textures\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

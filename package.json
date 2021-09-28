@@ -7,9 +7,9 @@
     "build-extension": "node build/build.js --output=./build/shdr.js --minify --chromeapp"
   },
   "dependencies": {
-    "argparse": "latest",
-    "uglify-js": "latest",
-    "coffee-script": "latest",
-    "http-server": "latest"
+    "argparse": "^2.0.1",
+    "coffee-script": "^1.12.7",
+    "http-server": "^0.12.3",
+    "uglify-js": "^3.14.1"
   }
 }

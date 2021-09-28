@@ -3,6 +3,8 @@ Models =
   'models/cube.js':
     name: 'Cube'
 
+  'models/buildings.js':
+    name: 'Buildings'
 
   'models/quad.js':
     name: 'Quad'
