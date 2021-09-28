@@ -34,8 +34,8 @@ npm run build-extension
 ```
 
 Objs files are from:
-sheepHightDef.obj : https://free3d.com/3d-model/sheep-v1--489218.html 
-sheep.obj : https://free3d.com/3d-model/cartoon-low-poly-sheep-211607.html
-Both have been reprocessed in Blender (parameter Triangulate Face)
-others : Blender
+-sheepHightDef.obj : https://free3d.com/3d-model/sheep-v1--489218.html 
+-sheep.obj : https://free3d.com/3d-model/cartoon-low-poly-sheep-211607.html
+*Both have been reprocessed in Blender (parameter Triangulate Face)
+-others : Blender
 
