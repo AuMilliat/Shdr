@@ -152,7 +152,7 @@ class App
       obj = 
         documents: @documents
         model: @viewer.currentModel
-      json = JSON.stringify(obj)
+      json = json.stringify(obj)
       packed = window.btoa(RawDeflate.deflate(json))
       return @baseurl + '#1/' + packed
     catch e
@@ -166,7 +166,7 @@ class App
       version = hash.substr(0, 2)
       packed = hash.substr(2)
       json = RawDeflate.inflate(window.atob(packed))
-      obj = JSON.parse(json)
+      obj = json.parse(json)
       return obj
     catch e
       @ui.setStatus("Unable to unpack document: #{e.getMessage?()}",
@@ -180,7 +180,7 @@ class App
       contentType: 'application/json'
       dataType: 'json'
       data:
-        JSON.stringify(longUrl: url)
+        json.stringify(longUrl: url)
       success: (resp) =>
         if not resp or 'error' of resp or not 'id' of resp
           @ui.setStatus('An error occured while trying to shorten shared URL.',
@@ -210,22 +210,89 @@ class App
         @ui.setStatus('Uploaded', shdr.UI.SUCCESS)
     catch e
       @ui.setStatus('You must select a texture to upload.', shdr.UI.WARNING)
+      
+#https://github.com/timoxley/threejs/blob/master/utils/exporters/obj/convert_obj_three.py
+  objToJson: (object) ->
+    @ui.setStatus('Parsing...', shdr.UI.WARNING)
+    json='{"metadata":{"formatVersion":3.1,"generatedBy":"","materials":0,"morphTargets":0,"colors":0,"bones":0,"uvs":[],'
+    vertices=''
+    verticesCount=0
+    normals=''
+    normalsCount=0
+    uvs=''
+    uvsCount=0
+    faces=''
+    facesCount=0
+    lines = object.split('\n')
+    for line in lines
+        if line[0] == '#'
+	        continue
+        values = line.split(' ')
+        if values[0] == "v"
+	        vertices += ',' + values[1] + ',' + values[2] + ',' + values[3]
+	        verticesCount += 1
+        if values[0] == "vt"
+	        uvs += ',' + values[1] + ',' + values[2]
+	        uvsCount += 1
+        if values[0] == "vn"
+	        normals += ',' + values[1] + ',' + values[2] + ',' + values[3]
+	        normalsCount += 1
+        if values[0] == "f"
+            faceType = 0
+            if values.length > 4
+                faceType = 1
+            if uvsCount > 0
+                faceType += 8
+            if normalsCount > 0
+                faceType += 32
+            faces += ',' + faceType
+            t_face=''
+            n_face=''
+            for value in values[1..]
+                face = value.split('/')
+                faces += ',' + (parseInt(face[0])-1)
+                if face.length > 1 && face[1].length > 0
+                    t_face += ',' +  (parseInt(face[1])-1)
+                if face.length > 2 && face[2].length > 0
+                    n_face += ',' + (parseInt(face[2])-1)
+            if t_face.length > 0
+                faces += t_face
+            if n_face.length > 0
+                faces += n_face
+            facesCount += 1
+
+    json+='"vertices":' + verticesCount + ','
+    json+='"faces":' + facesCount+ ','
+    json+='"normals":' + normalsCount
+    json+='},"morphTargets":[],"morphColors":[],"colors":[],"scale":1.000000,"materials":[],'
+    json+='"vertices":[' + vertices[1..]+'],'
+    json+='"normals":[' + normals[1..]+'],'
+    json+='"uvs":[[' + uvs[1..]+']],'
+    json+='"faces":[' + faces[1..]+']}'
+    console.log(json)
+    return btoa(json)
 
   upload: (fileObj) ->
     try
       @ui.setStatus('Uploading...', shdr.UI.WARNING)
       reader = new FileReader()
-      reader.readAsDataURL fileObj
-      reader.onload = (e) =>
-        extension = fileObj.name.split('.')[1]
-        if extension == "js"
-            model = {name: fileObj.name.split('.')[0], data: e.target.result}
-        else
-            @parser = new shdr.ObjToJson()
-            model = {name: fileObj.name.split('.')[0], data:@parser.parse(e.target.result)}
-        shdr.Models[e.target.result] = model
-        @ui.setStatus('Uploaded', shdr.UI.SUCCESS)
-        @ui.addNewModel(fileObj.name, e.target.result)
+      name = fileObj.name.split('.')[0]
+      extension = fileObj.name.split('.')[1]
+      if extension == "js"
+        reader.readAsDataURL fileObj
+        reader.onload = (e) =>  
+          model = {name: name, data: e.target.result, type: extension}
+          shdr.Models[e.target.result] = model
+          @ui.setStatus('Uploaded', shdr.UI.SUCCESS)
+          @ui.addNewModel(fileObj.name, e.target.result)
+      if extension == "obj"
+        reader.readAsText fileObj
+        reader.onload = (e) =>  
+          result = "data:text/javascript;base64,"+@objToJson(e.target.result)
+          model = {name: name, data: result, type: extension}
+          shdr.Models[result] = model
+          @ui.setStatus('Uploaded', shdr.UI.SUCCESS)
+          @ui.addNewModel(fileObj.name, result)
      catch e
        @ui.setStatus('You must select a .js model to upload.', shdr.UI.WARNING)
 
@@ -366,7 +433,6 @@ class App
   extend: (object, properties) ->
     for key, val of properties
       object[key] = val
-    object
 
 @shdr ||= {}
 @shdr.App = App

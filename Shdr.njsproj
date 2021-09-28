@@ -179,9 +179,6 @@
     <Content Include="sources\shdr\App.coffee" />
     <Content Include="sources\shdr\Bootstrap.coffee" />
     <Content Include="sources\shdr\Models.coffee" />
-    <Content Include="sources\shdr\ObjToJson.coffee">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="sources\shdr\Snippets.coffee" />
     <Content Include="sources\shdr\Storage.coffee" />
     <Content Include="sources\shdr\Textures.coffee" />
