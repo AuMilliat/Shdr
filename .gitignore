@@ -1,6 +1,5 @@
 node_modules
 sources/shdr/*.js
-sources/build/
 .vs
 bin
 obj
